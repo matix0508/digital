@@ -1,18 +1,21 @@
-module zad1_f_632_6(input a, b, c, d, output f1);
-    assign f1 = (~c & d) | (b & ~c);
+module zad1_f_1(
+    input A, B, C, D, 
+    output F
+);
+    assign F = ((B & D) | (A & B & (~C)));
 endmodule
 
-module zad1_f_632_3(input [3:0] f2input, output f2);
-    wire a, b, c, d;
-    assign {a, b, c, d} = f2input;
-    assign f2 = (~b & ~c & d) | (a & ~b &d) | (b & c);
+module zad1_f_2(input [3:0] in, output F);
+    wire A, B, C, D;
+    assign {A, B, C, D} = in;
+    assign F = (A & ~B & D)|(~A & B & D) | (C & ~B & D);
 endmodule
 
-module zad1_f_632_2(input [3:0] f3input, output reg f3);
-    always @(f3input) begin
-        case(f3input)
-        5, 7, 12, 13, 15: f3=1;
-        default: f3=0;
+module zad1_f_3(input [3:0] in, output reg F);
+    always @(in) begin
+        case(in)
+            5, 7, 12, 13, 15: F=1;
+            default: F=0;
         endcase
     end
 endmodule
