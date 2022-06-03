@@ -6,7 +6,7 @@ wire [3:0] cnt;
 
 always #1 clk = ~clk;
 
-counter c0(clk, rst_n, cnt);
+register24 c0(clk, rst_n, cnt);
    initial begin
       $dumpfile("counter.vcd");
       $dumpvars(0,test);

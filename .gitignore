@@ -1,5 +1,4 @@
 26/output/test
 *.vcd
-output
 a.out
 *_synth.v

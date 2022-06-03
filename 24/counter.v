@@ -1,4 +1,4 @@
-module counter (input clk, input rst_n, output reg[3:0] out);
+module register24 (input clk, input rst_n, output reg[3:0] out);
 
 reg x = 0;
 
