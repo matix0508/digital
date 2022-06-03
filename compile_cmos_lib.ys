@@ -1,0 +1,13 @@
+
+read_verilog -sv register26.v
+
+synth
+
+dfflibmap -liberty /eda/design_kits/ams_v4.10/liberty/c35_3.3V/c35_CORELIBD_TYP.lib
+abc       -liberty /eda/design_kits/ams_v4.10/liberty/c35_3.3V/c35_CORELIBD_TYP.lib
+opt_clean
+
+stat -liberty /eda/design_kits/ams_v4.10/liberty/c35_3.3V/c35_CORELIBD_TYP.lib
+
+write_verilog register26_synth.v
+

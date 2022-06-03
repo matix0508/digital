@@ -1,28 +1,22 @@
-module tb_counter;
-reg clk;
-reg rst_n;  
-wire [5:0] cnt;
+module test;
+reg clk = 0;
+reg rst_n = 0;  
+wire [3:0] cnt;
 
 
-always
-    #10 clk = ~clk;
-initial begin
-    rst_n = 0;
-    clk = 0;
-    #5 rst_n = 1;
-    #100; $finish;
-end
-counter c0(
-    .clk(clk),
-    .rst_n(rst_n),
-    .cnt(cnt)
-);
+always #1 clk = ~clk;
+
+counter c0(clk, rst_n, cnt);
    initial begin
       $dumpfile("counter.vcd");
-      $dumpvars(0,tb_counter);
-      clk <= 0;
-      rst_n <= 0;
+      $dumpvars(0,test);
+        # 15 rst_n = 1;
+        # 72 $finish;
 
+   end
+
+   initial begin
+       $monitor("At time %t, value = %d (%b)", $time, cnt, cnt);
    end
 
 endmodule

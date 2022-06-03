@@ -2,3 +2,4 @@
 *.vcd
 output
 a.out
+*_synth.v

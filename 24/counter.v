@@ -1,17 +1,16 @@
-module counter (input clk, input rst_n, output [5:0] cnt);
+module counter (input clk, input rst_n, output reg[3:0] out);
 
-reg [5:0] r_LFSR = 0;
-reg r_XNOR;
+reg x = 0;
 
-always @(posedge clk)
+
+always @(posedge clk, negedge rst_n)
     begin
-      r_LFSR <= {r_LFSR[5:1], r_XNOR};
+      if(!rst_n) begin
+        out <= 0;
+      end else begin
+        x <= out[3] ^~ out[2];
+        out <= {out[2:0], x};
+      end
     end
-
-
-always @(*) begin
-    r_XNOR = r_LFSR[6] ^~ r_LFSR[5];
-end
-assign cnt = r_LFSR[5:1];
    
 endmodule
