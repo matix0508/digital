@@ -1,4 +1,4 @@
-read_verilog -sv shift_reg.v
+read_verilog -sv counter.v
 
 synth
 
@@ -8,4 +8,4 @@ opt_clean
 
 stat -liberty /eda/design_kits/ams_v4.10/liberty/c35_3.3V/c35_CORELIBD_TYP.lib
 
-write_verilog shift_reg_synth.v
+write_verilog counter_synth.v
