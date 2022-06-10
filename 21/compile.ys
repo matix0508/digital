@@ -1,0 +1,13 @@
+
+read_verilog -sv vector.v
+
+synth
+
+dfflibmap -liberty ./aon_cells.lib
+abc       -liberty ./aon_cells.lib
+opt_clean
+
+stat -liberty ./aon_cells.lib
+
+write_verilog vector_synth.v
+
