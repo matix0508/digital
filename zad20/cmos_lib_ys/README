@@ -1,0 +1,8 @@
+Aby wykonac kompilację należy wyedytować jeden ze skryptów syntezujących: 
+compile_cmos_lib.tcl lub compile_cmos_lib.ys w zależności od stylu skryptu syntezującego 
+jaki preferujesz -- oparty na TCL lub natywny dla yosys'a. W miejsce <my_file_name> należy
+ wpisac ścieżkę do pliku z kodem verilogowskim, który zamierzasz zsyntezować.
+
+Syntezę odpalamy jednym ze skryptów bashowych: run_cmos_tcl.sh lub run_cmos.sh, 
+które wołają yosys z opcjami właśmiwymi dla wyrbanego stylu skryptu syntezującego.
+

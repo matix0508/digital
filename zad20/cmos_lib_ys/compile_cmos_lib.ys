@@ -1,0 +1,13 @@
+
+read_verilog -sv <my_file_name>
+
+synth
+
+dfflibmap -liberty ./cmos_cells.lib
+abc       -liberty ./cmos_cells.lib
+opt_clean
+
+stat -liberty ./cmos_cells.lib
+
+write_verilog cmos_synth.v
+

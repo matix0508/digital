@@ -1,18 +1,24 @@
-module register26(input clk, rst_n, output reg [3:0]D);
-        reg [3:0] delta = 1; //
+module register26(
+input clk, 
+rst_n, 
+output reg [3:0]OUT
+);
+        reg [3:0] d = 1; //
 
-        always @(posedge clk, negedge rst_n) begin
+        always @(posedge clk, negedge rst_n) 
+        begin
                 if(!rst_n) begin
-                        D <=0;
-                end else begin
-                        D<= D + delta;
+                        OUT <=0;
+                end else 
+                begin
+                        OUT <= OUT + d;
                 end
 
         end
         always @(posedge clk) begin
-                case(D)
-                        1: delta <= 1;
-                        14: delta <= 15;
+                case(OUT)
+                        1: d <= 1;
+                        14: d <= 15;
                 endcase
         end
 endmodule
